@@ -1,5 +1,5 @@
 /*
- * uart_hw.c — Bare-register UART, no HAL
+ * uart_hw.c ï¿½ Bare-register UART, no HAL
  * USART1 on PA9 (TX) / PA10 (RX)
  * 9600 baud, HSI 16MHz
  * BRR = 16000000 / 9600 = 1667
@@ -15,27 +15,27 @@ void uart_hw_init(void) {
     /* USART1 clock (APB2 bit 4) */
     RCC->APB2ENR |= (1 << 4);
 
-    /* PA9 = TX: alternate function mode */
-    GPIOA->MODER &= ~(3U << (9 * 2));
+
+    GPIOA->MODER &= ~(3U << (9 * 2)); //clearing PA9 and then setting it as AF mode
     GPIOA->MODER |=  (2U << (9 * 2));
-    /* PA9 AF7 = USART1_TX */
-    GPIOA->AFR[1] &= ~(0xFU << 4);
+
+    GPIOA->AFR[1] &= ~(0xFU << 4); //AF7
     GPIOA->AFR[1] |=  (7U   << 4);
 
-    /* PA10 = RX: alternate function mode */
-    GPIOA->MODER &= ~(3U << (10 * 2));
-    GPIOA->MODER |=  (2U << (10 * 2));
-    /* PA10 AF7 = USART1_RX */
-    GPIOA->AFR[1] &= ~(0xFU << 8);
-    GPIOA->AFR[1] |=  (7U   << 8);
 
-    /* Baud rate: HSI=16MHz / 9600 = 1667 */
+    GPIOA->MODER &= ~(3U << (10 * 2)); //clearing PA10 and then setting it as AF mode
+    GPIOA->MODER |=  (2U << (10 * 2));
+
+    GPIOA->AFR[1] &= ~(0xFU << 8); 
+    GPIOA->AFR[1] |=  (7U   << 8); //AF7
+
+    /* Baud rate */
     USART1->BRR = 1667;
 
-    /* Enable USART, TX, RX */
-    USART1->CR1 = (1 << 13) |   /* UE  - USART enable   */
-                  (1 <<  3) |   /* TE  - TX enable       */
-                  (1 <<  2);    /* RE  - RX enable       */
+   //UE,TE,RE
+    USART1->CR1 = (1 << 13) |   
+                  (1 <<  3) |   
+                  (1 <<  2);    
 }
 
 void uart_send_char(char c) {
@@ -50,10 +50,10 @@ void uart_send_string(const char *s) {
 
 void uart_send_bytes(const uint8_t *data, size_t len) {
     for (size_t i = 0; i < len; i++)
-        uart_send_char((char)data[i]);
+        uart_send_char((char)data[i]); //uart_send_char((uint8_t)data[i]);
 }
 
-void uart_send_hex(const uint8_t *data, size_t len) {
+void uart_send_hex(const uint8_t *data, size_t len) { //BINARY DATA TO HEX STRING
     const char hex_chars[] = "0123456789ABCDEF";
     for (size_t i = 0; i < len; i++) {
         uart_send_char(hex_chars[(data[i] >> 4) & 0xF]);
