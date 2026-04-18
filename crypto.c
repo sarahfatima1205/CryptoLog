@@ -50,10 +50,11 @@ static void rfc6979_nonce(uint8_t nonce[32],
 }
 //nonce = SHA256(priv_key || message_hash)
 
+//wallet creation
 int crypto_init(void) {
     uint8_t seed[32];
     collect_entropy(seed);
-    int r = ecc_keygen(&g_keypair, seed);
+    int r = ecc_keygen(&g_keypair, seed); //ecc key generation
     if (r == 0) g_initialized = 1;
     return r;
 }
@@ -63,12 +64,12 @@ void crypto_hash(const uint8_t *data, size_t len, uint8_t hash[32]) {
 }
 
 int crypto_sign(const uint8_t hash[32], uint8_t sig_out[64]) {
-    if (!g_initialized) return -1;
+    if (!g_initialized) return -1; //fails if crypto not initialised
     uint8_t nonce[32];
     rfc6979_nonce(nonce, &g_keypair.priv, hash);
     ECDSASig sig;
-    int r = ecdsa_sign(&sig, hash, &g_keypair.priv, nonce);
-    if (r != 0) return r;
+    int r = ecdsa_sign(&sig, hash, &g_keypair.priv, nonce); //creates signature
+    if (r != 0) return r; //error if signing fails
     ecdsa_sig_to_bytes(&sig, sig_out);
     return 0;
 }
@@ -83,3 +84,54 @@ int crypto_verify(const uint8_t hash[32], const uint8_t sig[64]) {
 void crypto_get_pubkey(uint8_t pub_out[65]) {
     ecc_export_pubkey(&g_keypair.pub, pub_out);
 }
+
+#if 0
+int crypto_verify(const uint8_t hash[32], const uint8_t sig[64])
+{
+    /* 1. Check initialization */
+    if (!g_initialized) {
+        uart_send_string("[VERIFY ERROR] Crypto not initialized\r\n");
+        return -1;
+    }
+
+    /* 2. Basic input validation */
+    if (hash == NULL || sig == NULL) {
+        uart_send_string("[VERIFY ERROR] NULL input\r\n");
+        return -2;
+    }
+
+    /* 3. Print debug info (helps detect mismatch issues) */
+    uart_send_string("\r\n[VERIFY] Using Public Key: ");
+    uint8_t pub[65];
+    ecc_export_pubkey(&g_keypair.pub, pub);
+    uart_send_hex(pub, 65);
+
+    uart_send_string("[VERIFY] Hash: ");
+    uart_send_hex(hash, 32);
+
+    uart_send_string("[VERIFY] Signature: ");
+    uart_send_hex(sig, 64);
+
+    /* 4. Convert signature bytes → (r, s) */
+    ECDSASig signature;
+    ecdsa_sig_from_bytes(&signature, sig);
+
+    /* 5. Perform verification */
+    int result = ecdsa_verify(&signature, hash, &g_keypair.pub);
+
+    /* 6. Interpret result clearly */
+    if (result == 0) {
+        uart_send_string("[VERIFY RESULT] VALID ✅\r\n");
+        return 0;
+    } else {
+        uart_send_string("[VERIFY RESULT] INVALID ❌\r\n");
+
+        /* Helpful hint printed directly */
+        uart_send_string("Possible reasons:\r\n");
+        uart_send_string("- Key changed (device reset?)\r\n");
+        uart_send_string("- Hash mismatch\r\n");
+        uart_send_string("- Signature corrupted\r\n");
+
+        return -3;
+    }
+} endif 
