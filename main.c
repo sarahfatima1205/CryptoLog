@@ -17,7 +17,7 @@ void delay(volatile uint32_t t)
 int main(void)
 {
     //HAL_Init();          // needed for FLASH timing
-    uart_hw_init();      // YOUR WORKING UART
+    uart_hw_init();      // WORKING UART
 
     uart_send_string("\r\n====================================\r\n");
     uart_send_string(" Secure Data Logger + Wallet\r\n");
@@ -27,7 +27,7 @@ int main(void)
 
     if (crypto_init() != 0)
     {
-        uart_send_string("Crypto FAILED\r\n");
+        uart_send_string("Crypto FAILED\r\n"); //system halt if crypto fails
         while(1);
     }
 

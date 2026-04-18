@@ -134,4 +134,4 @@ int crypto_verify(const uint8_t hash[32], const uint8_t sig[64])
 
         return -3;
     }
-} endif 
+} #endif 
