@@ -9,6 +9,7 @@
 #include "bignum.h" //for large no. operations used in ecc
 #include "stm32f4xx.h"
 #include <string.h>
+#include "uart_hw.h"
 
 static ECKeyPair g_keypair; //store device's keys
 static int       g_initialized = 0; //flag to check if crypto is initialized before signing/verifying
