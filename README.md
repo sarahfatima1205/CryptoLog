@@ -185,3 +185,65 @@ Contributions are welcome! Please:
 - Based on educational implementations of cryptographic algorithms
 - Inspired by hardware security modules and blockchain concepts
 - Developed as part of cryptographic systems coursework
+
+## Use Cases
+
+- **Industrial Logging**  
+  Provides tamper-proof logs for pressure, temperature, and safety-critical systems where data integrity is legally or operationally important.
+
+- **Pharmaceutical Cold Chain Monitoring**  
+  Ensures that temperature-sensitive medical products (e.g., vaccines) are stored and transported correctly with verifiable, non-modifiable logs.
+
+- **IoT Device Authentication**  
+  Acts as a hardware root-of-trust by signing challenges, enabling secure device identity verification in cloud systems.
+
+- **Automotive Black Box Systems**  
+  Records vehicle data (speed, braking, events) in a tamper-evident format for accident analysis and insurance validation.
+
+- **Secure Audit Logs**  
+  Maintains immutable logs for financial systems, voting systems, or compliance tracking.
+
+- **Embedded Hardware Wallet / Signing Device**  
+  Demonstrates secure key usage by signing external messages without exposing the private key.
+
+## Performance
+
+- **Crypto Initialization**: < 100 ms  
+- **Block Logging Time**: < 10 ms per block  
+- **Verification Time**: < 100 ms for 10 blocks  
+- **HMAC-SHA256 Execution**: ~4–5 ms  
+- **SHA-256 Execution**: ~2 ms  
+- **Block Size**: 124 bytes  
+- **Storage Capacity**: 64 blocks (Flash Sector 11, 128 KB)  
+- **UART Baud Rate**: 9600 (stable using bare-register driver)  
+
+## Future Improvements
+
+- **Persistent Key Storage**  
+  Store the secret key in Flash OTP or a secure element instead of regenerating it at every boot.
+
+- **Real Sensor Integration**  
+  Replace simulated sensor data with actual sensors (e.g., BME280, DS18B20) via I2C/SPI.
+
+- **Public-Key Cryptography Support**  
+  Add ECDSA or Ed25519 on higher-performance hardware for public verification without shared secrets.
+
+- **Extended Storage**  
+  Use multiple Flash sectors or external storage (SD card) to increase logging capacity.
+
+- **Display Interface**  
+  Utilize the onboard LCD to show system status, block count, and verification results.
+
+- **Interrupt-Based UART**  
+  Improve efficiency and responsiveness by replacing polling with interrupt-driven communication.
+
+- **Secure Boot Integration**  
+  Extend the system to verify firmware integrity during startup using cryptographic signatures.
+
+## Conclusion
+
+This project demonstrates a complete embedded security system that combines tamper-evident data storage with hardware-based cryptographic signing. By implementing SHA-256 and HMAC-SHA256 from scratch, it ensures full transparency and understanding of the cryptographic process.
+
+The system guarantees data integrity through hash chaining and authenticity through keyed signatures, making any unauthorized modification immediately detectable. In addition, the device functions as a signing oracle, similar to a hardware wallet or hardware security module.
+
+The design highlights practical trade-offs in embedded cryptography, particularly the choice of HMAC over ECDSA for performance reasons on constrained hardware. Overall, the project provides a strong foundation for real-world applications in secure logging, IoT authentication, and embedded trust systems.
