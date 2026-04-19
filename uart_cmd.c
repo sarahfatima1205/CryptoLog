@@ -1,5 +1,5 @@
 /*
- * uart_cmd.c — UART command interface
+ * uart_cmd.c â€” UART command interface
  * HMAC-SHA256 version: sig=32 bytes, pubkey=32 bytes
  */
 

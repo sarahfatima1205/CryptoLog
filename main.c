@@ -1,5 +1,5 @@
 /*
- * main.c � Secure Data Logger + Wallet
+ * main.c — Secure Data Logger + Wallet
  * STM32F429I-DISC1, HSI 16MHz, USART1 PA9/PA10, 9600 baud
  */
 
@@ -12,16 +12,9 @@
 #include <string.h>
 #include <stdio.h>
 
-/* No HAL at all � bare register only */
+/* No HAL at all — bare register only */
 
-<<<<<<< HEAD
 static void soft_delay(volatile uint32_t n) { while (n--); }
-=======
-int main(void)
-{
-    //HAL_Init();          // needed for FLASH timing
-    uart_hw_init();      // WORKING UART
->>>>>>> 56b3653d71a9506bf9a15f49ac228248589fe1e6
 
 int main(void) {
     uart_hw_init();
@@ -33,16 +26,9 @@ int main(void) {
     uart_send_string("=====================================\r\n");
     uart_send_string("Initializing crypto...\r\n");
 
-<<<<<<< HEAD
     if (crypto_init() != 0) {
         uart_send_string("FATAL: crypto_init failed.\r\n");
         while (1);
-=======
-    if (crypto_init() != 0)
-    {
-        uart_send_string("Crypto FAILED\r\n"); //system halt if crypto fails
-        while(1);
->>>>>>> 56b3653d71a9506bf9a15f49ac228248589fe1e6
     }
 
     uart_send_string("Crypto OK\r\n");
@@ -80,7 +66,7 @@ int main(void) {
     const uint32_t OUTER_MAX = 12000UL;   /* ~120 seconds */
 
     while (1) {
-        /* -- Check UART byte -- */
+        /* ── Check UART byte ── */
         if (uart_recv_ready()) {
             uint8_t c = uart_recv_char();
             uart_send_char((char)c);
@@ -89,7 +75,7 @@ int main(void) {
             inner = 0;
         }
 
-        /* -- Auto-log tick -- */
+        /* ── Auto-log tick ── */
         inner++;
         if (inner >= INNER_MAX) {
             inner = 0;

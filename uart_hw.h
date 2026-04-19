@@ -2,7 +2,7 @@
 #define UART_HW_H
 
 /*
- * uart_hw.c — Bare-register UART driver
+ * uart_hw.c â€” Bare-register UART driver
  * USART1, PA9 (TX), PA10 (RX), 9600 baud, HSI 16MHz
  * No HAL. Matches the approach confirmed working on this board.
  */

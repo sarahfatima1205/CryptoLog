@@ -1,6 +1,6 @@
 /*
- * blockchain.c � Hash chain, Flash sector 11
- * Uses bare-register Flash programming � no HAL needed.
+ * blockchain.c — Hash chain, Flash sector 11
+ * Uses bare-register Flash programming — no HAL needed.
  *
  * STM32F429 Flash sector 11: 0x080E0000, 128KB
  */
@@ -16,7 +16,7 @@
 static Block * const flash_chain = (Block *)FLASH_CHAIN_BASE;
 static int block_count = 0;
 
-/* -- Bare-register Flash driver ----------------- */
+/* ── Bare-register Flash driver ───────────────── */
 
 static void flash_wait_busy(void) {
     while (FLASH->SR & FLASH_SR_BSY);
@@ -73,7 +73,7 @@ static void flash_erase_chain(void) {
     flash_lock();
 }
 
-/* -- Serialise block for hashing --------------- */
+/* ── Serialise block for hashing ─────────────── */
 static size_t block_to_hashable(const Block *b, uint8_t *buf) {
     size_t pos = 0;
     memcpy(buf + pos, &b->index,             4); pos += 4;
@@ -86,7 +86,7 @@ static size_t block_to_hashable(const Block *b, uint8_t *buf) {
     return pos;   /* 56 bytes */
 }
 
-/* -- Public API --------------------------------- */
+/* ── Public API ───────────────────────────────── */
 
 void blockchain_init(void) {
     block_count = 0;

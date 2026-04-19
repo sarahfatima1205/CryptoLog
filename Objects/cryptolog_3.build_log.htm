@@ -27,34 +27,72 @@ Project File Date:  04/15/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-crypto.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * crypto.c <97> HMAC-SHA256 signing from scratch
-            ^
-crypto.c(20): warning: In file included from...
-./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * crypto.h <97> HMAC-SHA256 signing, from scratch
-            ^
-./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
-                                  ^
-./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * This is a commitment to the key <97> proves same device signed,
+sensor_sim.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * sensor_sim.c <97> Simulated sensor data
+                ^
+sensor_sim.c(9): warning: In file included from...
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
                                    ^
-./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-crypto.c(21): warning: In file included from...
-./sha256.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * SHA-256 <97> from scratch, pure C, zero dependencies
-           ^
-crypto.c(22): warning: In file included from...
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                                           ^
+sensor_sim.c(10): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
                                                ^
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *                code will be based on direct access to peripheral<92>s registers 
                                                                     ^
-crypto.c(22): warning: In file included from...
+sensor_sim.c(10): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+sensor_sim.c(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+     * Temperature: 20.00<B0>C base, slow sine-ish drift, small noise
+                         ^
+sensor_sim.c(20): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+     * Using integer arithmetic only <97> no floats on embedded
+                                     ^
+sensor_sim.c(22): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t drift   = (tick * 7) % 1500;   /* 0..14.99<B0>C range */
+                                                       ^
+sensor_sim.c(23): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t noise   = (tick * 31 + DWT->CYCCNT) % 50;  /* <B1>0.25<B0>C */
+                                                           ^
+sensor_sim.c(23): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t noise   = (tick * 31 + DWT->CYCCNT) % 50;  /* <B1>0.25<B0>C */
+                                                                   ^
+sensor_sim.c(16): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    SensorData d;
+               ^
+14 warnings generated.
+compiling sensor_sim.c...
+uart_hw.c(8): warning: In file included from...
+./uart_hw.h(21): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+uart_hw.c(9): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+uart_hw.c(9): warning: In file included from...
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
 ./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
@@ -66,7 +104,7 @@ C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/D
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *                code will be based on direct access to peripheral<92>s registers 
                                                                     ^
-crypto.c(22): warning: In file included from...
+uart_hw.c(9): warning: In file included from...
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
 ./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
@@ -80,81 +118,16 @@ C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4
 C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
 typedef struct
         ^
-crypto.c(28): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-static uint8_t g_pubkey[32];     /* SHA256(key) <97> public identity */
-                                                ^
-crypto.c(38): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-    uint8_t raw[64];
-            ^
-crypto.c(21): warning: In file included from...
-./sha256.h(21): warning: padding size of 'SHA256_CTX' with 4 bytes to alignment boundary [-Wpadded]
-typedef struct {
-        ^
-crypto.c(76): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-    SHA256_CTX ctx;
-               ^
-crypto.c(111): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-    uint8_t expected[32];
-            ^
-crypto.c(122): warning: no newline at end of file [-Wnewline-eof]
+uart_hw.c(73): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-19 warnings generated.
-compiling crypto.c...
-main.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * main.c <97> Secure Data Logger + Wallet
-          ^
-main.c(6): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
-main.c(6): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
-./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
-main.c(6): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
-./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
-  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
-             ^
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
-  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
-            ^
-C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
-typedef struct
-        ^
-main.c(7): warning: In file included from...
-./uart_hw.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * uart_hw.c <97> Bare-register UART driver
-             ^
-main.c(8): warning: In file included from...
-./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * crypto.h <97> HMAC-SHA256 signing, from scratch
-            ^
-./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
-                                  ^
-./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * This is a commitment to the key <97> proves same device signed,
-                                   ^
-./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+9 warnings generated.
+compiling uart_hw.c...
+uart_cmd.c(7): warning: In file included from...
+./uart_hw.h(21): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(9): warning: In file included from...
+uart_cmd.c(8): warning: In file included from...
 ./blockchain.h(6): warning: In file included from...
 ./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
     uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
@@ -162,36 +135,73 @@ main.c(9): warning: In file included from...
 ./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
     uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
                                                            ^
-main.c(9): warning: In file included from...
+uart_cmd.c(8): warning: In file included from...
 ./blockchain.h(28): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(15): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-/* No HAL at all <97> bare register only */
-                 ^
-main.c(48): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-    GPIOG->MODER &= ~((3 << (13*2)) | (3 << (14*2)));
-                 ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(86): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-                SensorData d = sensor_read();
-                           ^
-main.c(92): warning: no newline at end of file [-Wnewline-eof]
+uart_cmd.c(9): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+uart_cmd.c(11): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+uart_cmd.c(11): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+uart_cmd.c(11): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+uart_cmd.c(37): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    SensorData d = sensor_read();
+               ^
+uart_cmd.c(59): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    int r = blockchain_verify_all();
+        ^
+uart_cmd.c(72): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    char buf[160];
+         ^
+uart_cmd.c(96): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t hash[32];
+            ^
+uart_cmd.c(161): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-main.c(36): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-    uint8_t pub[65];
-            ^
-main.c(17): warning: unused function 'soft_delay' [-Wunused-function]
-static void soft_delay(volatile uint32_t n) { while (n--); }
-            ^
-22 warnings generated.
-compiling main.c...
-blockchain.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * blockchain.c <97> Hash chain, Flash sector 11
-                ^
-blockchain.c(3): warning: invalid UTF-8 in comment [-Winvalid-utf8]
- * Uses bare-register Flash programming <97> no HAL needed.
-                                        ^
+20 warnings generated.
+compiling uart_cmd.c...
 blockchain.c(8): warning: In file included from...
 ./blockchain.h(6): warning: In file included from...
 ./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
@@ -259,11 +269,1106 @@ blockchain.c(140): warning: mixing declarations and code is incompatible with st
 blockchain.c(153): warning: no newline at end of file [-Wnewline-eof]
 void  blockchain_erase(void)    { flash_erase_chain(); block_count = 0; }
                                                                          ^
-19 warnings generated.
+17 warnings generated.
 compiling blockchain.c...
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(7): warning: In file included from...
+./uart_hw.h(21): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(8): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(9): warning: In file included from...
+./blockchain.h(6): warning: In file included from...
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                   ^
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                                           ^
+main.c(9): warning: In file included from...
+./blockchain.h(28): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(48): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    GPIOG->MODER &= ~((3 << (13*2)) | (3 << (14*2)));
+                 ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(86): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+                SensorData d = sensor_read();
+                           ^
+main.c(92): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(36): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t pub[65];
+            ^
+main.c(17): warning: unused function 'soft_delay' [-Wunused-function]
+static void soft_delay(volatile uint32_t n) { while (n--); }
+            ^
+20 warnings generated.
+compiling main.c...
+crypto.c(20): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+crypto.c(21): warning: In file included from...
+./sha256.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * SHA-256 <97> from scratch, pure C, zero dependencies
+           ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+crypto.c(38): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t raw[64];
+            ^
+crypto.c(21): warning: In file included from...
+./sha256.h(21): warning: padding size of 'SHA256_CTX' with 4 bytes to alignment boundary [-Wpadded]
+typedef struct {
+        ^
+crypto.c(76): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    SHA256_CTX ctx;
+               ^
+crypto.c(111): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t expected[32];
+            ^
+crypto.c(122): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+17 warnings generated.
+compiling crypto.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c(36): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c(36): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+5 warnings generated.
+compiling stm32f4xx_hal.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(83): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(83): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(217): warning: function 'HAL_NVIC_SystemReset' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c(83): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(399): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_cortex.h(54): warning: padding struct 'MPU_Region_InitTypeDef' with 2 bytes to align 'BaseAddress' [-Wpadded]
+  uint32_t               BaseAddress;           /*!< Specifies the base address of the region to protect.                           */
+                         ^
+7 warnings generated.
+compiling stm32f4xx_hal_cortex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(98): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(98): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(98): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(290): warning: cast from function call of type 'uint32_t' (aka 'unsigned int') to non-matching type 'DMA_Base_Registers *' [-Wbad-function-cast]
+  regs = (DMA_Base_Registers *)DMA_CalcBaseAndBitshift(hdma);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(352): warning: cast from function call of type 'uint32_t' (aka 'unsigned int') to non-matching type 'DMA_Base_Registers *' [-Wbad-function-cast]
+  regs = (DMA_Base_Registers *)DMA_CalcBaseAndBitshift(hdma);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(978): warning: enumeration value 'HAL_DMA_XFER_ALL_CB_ID' not explicitly handled in switch [-Wswitch-enum]
+    switch (CallbackID)
+            ^~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c(1072): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+10 warnings generated.
+compiling stm32f4xx_hal_dma.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c(164): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c(164): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c(164): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(423): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma2d.h(156): warning: padding struct 'struct __DMA2D_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t               ErrorCode;                                  /*!< DMA2D error code.                      */
+                              ^
+6 warnings generated.
+compiling stm32f4xx_hal_dma2d.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c(40): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c(40): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c(40): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+6 warnings generated.
+compiling stm32f4xx_hal_dma_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(87): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(87): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(380): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(467): warning: unused parameter 'Edge' [-Wunused-parameter]
+uint32_t HAL_EXTI_GetPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
+                                                                 ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c(496): warning: unused parameter 'Edge' [-Wunused-parameter]
+void HAL_EXTI_ClearPending(EXTI_HandleTypeDef *hexti, uint32_t Edge)
+                                                               ^
+8 warnings generated.
+compiling stm32f4xx_hal_exti.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(78): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(78): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(78): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(439): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(62): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'NbSectorsToErase' [-Wpadded]
+  __IO uint32_t               NbSectorsToErase;   /*Internal variable to save the remaining sectors to erase in IT context*/
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(66): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'Sector' [-Wpadded]
+  __IO uint32_t               Sector;             /*Internal variable to define the current sector which is erasing*/
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(74): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t               ErrorCode;          /* FLASH error code                    */
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(106): warning: no previous extern declaration for non-static variable 'pFlash' [-Wmissing-variable-declarations]
+FLASH_ProcessTypeDef pFlash;
+                     ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c(106): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+FLASH_ProcessTypeDef pFlash;
+^
+9 warnings generated.
+compiling stm32f4xx_hal_flash.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(64): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(64): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(64): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(439): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(62): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'NbSectorsToErase' [-Wpadded]
+  __IO uint32_t               NbSectorsToErase;   /*Internal variable to save the remaining sectors to erase in IT context*/
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(66): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'Sector' [-Wpadded]
+  __IO uint32_t               Sector;             /*Internal variable to define the current sector which is erasing*/
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(74): warning: padding struct 'FLASH_ProcessTypeDef' with 3 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t               ErrorCode;          /* FLASH error code                    */
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(273): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    FLASH_Erase_Sector(pEraseInit->Sector, pEraseInit->VoltageRange);
+    ~~~~~~~~~~~~~~~~~~                     ~~~~~~~~~~~~^~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(315): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    status = FLASH_OB_RDP_LevelConfig(pOBInit->RDPLevel);
+             ~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~^~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(329): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    status = FLASH_OB_BOR_LevelConfig(pOBInit->BORLevel);
+             ~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~^~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c(64): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(439): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_flash.h(297): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h(69): warning: padding size of 'FLASH_OBProgramInitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h(101): warning: padding size of 'FLASH_AdvOBProgramInitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+13 warnings generated.
+compiling stm32f4xx_hal_flash_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(108): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c(108): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+5 warnings generated.
+compiling stm32f4xx_hal_gpio.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c(57): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c(57): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c(57): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(80): warning: padding struct 'HCD_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  __IO  uint32_t            ErrorCode;  /*!< HCD Error code           */
+                            ^
+6 warnings generated.
+compiling stm32f4xx_hal_hcd.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c(43): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c(43): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c(43): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(467): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_i2c.h(216): warning: padding struct 'I2C_HandleTypeDef' with 1 byte to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t              ErrorCode;      /*!< I2C Error code                           */
+                             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c(43): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c(143): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    tmpreg = hi2c->Instance->FLTR;
+           ~ ~~~~~~~~~~~~~~~~^~~~
+8 warnings generated.
+compiling stm32f4xx_hal_i2c_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c(302): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c(302): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c(302): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(467): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_i2c.h(216): warning: padding struct 'I2C_HandleTypeDef' with 1 byte to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t              ErrorCode;      /*!< I2C Error code                           */
+                             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c(302): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+7 warnings generated.
+compiling stm32f4xx_hal_i2c.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(187): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(187): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(187): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(475): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_i2s.h(123): warning: padding struct 'struct __I2S_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t              ErrorCode;    /*!< I2S Error code
+                             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(459): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    tmpreg = I2SxEXT(hi2s->Instance)->I2SCFGR;
+           ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(187): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(869): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(870): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(988): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(989): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1086): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1087): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1152): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1153): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1216): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1217): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1307): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize = (Size << 1U);
+                     ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c(1308): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+20 warnings generated.
+compiling stm32f4xx_hal_i2s.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(91): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(91): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(238): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(239): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(240): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(241): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(91): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(475): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_i2s.h(123): warning: padding struct 'struct __I2S_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t              ErrorCode;    /*!< I2S Error code
+                             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(314): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        (*pRxData++) = I2SxEXT(hi2s->Instance)->DR;
+                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(387): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        (*pRxData++) = hi2s->Instance->DR;
+                     ~ ~~~~~~~~~~~~~~~~^~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(91): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(461): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(462): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(463): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(464): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(574): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(575): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->TxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(576): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferSize  = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(577): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+    hi2s->RxXferCount = (Size << 1U);
+                      ~  ~~~~~^~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(1014): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  (*hi2s->pRxBuffPtr++) = hi2s->Instance->DR;
+                        ~ ~~~~~~~~~~~~~~~~^~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c(1043): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  (*hi2s->pRxBuffPtr++) = I2SxEXT(hi2s->Instance)->DR;
+                        ~ ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+23 warnings generated.
+compiling stm32f4xx_hal_i2s_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(202): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(202): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(202): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(523): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_irda.h(71): warning: padding struct 'IRDA_InitTypeDef' with 3 bytes to align 'IrDAMode' [-Wpadded]
+  uint32_t IrDAMode;                  /*!< Specifies the IrDA mode
+           ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_irda.h(173): warning: padding struct 'IRDA_HandleTypeDef' with 1 byte to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t               ErrorCode;        /*!< IRDA Error code                    */
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(202): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(803): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+        tmp = (uint16_t *) pData;
+              ^~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(891): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+        tmp = (uint16_t *) pData ;
+              ^~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(2461): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      tmp = (uint16_t *) hirda->pTxBuffPtr;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c(2539): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      tmp = (uint16_t *) hirda->pRxBuffPtr;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+12 warnings generated.
+compiling stm32f4xx_hal_irda.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c(26): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c(26): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c(381): warning: unused parameter 'Regulator' [-Wunused-parameter]
+void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
+                                     ^
+6 warnings generated.
+compiling stm32f4xx_hal_pwr.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c(25): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c(25): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+5 warnings generated.
+compiling stm32f4xx_hal_pwr_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c(69): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c(69): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+5 warnings generated.
+compiling stm32f4xx_hal_rcc.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c(25): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c(25): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c(25): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h(341): warning: padding size of 'RCC_PeriphCLKInitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+6 warnings generated.
+compiling stm32f4xx_hal_rcc_ex.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(257): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(257): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(257): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(515): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h(183): warning: padding struct 'struct __UART_HandleTypeDef' with 1 byte to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t                 ErrorCode;        /*!< UART Error code                    */
+                                ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(257): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(1165): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      pdata16bits = (uint16_t *) pData;
+                    ^~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(1254): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      pdata16bits = (uint16_t *) pData;
+                    ^~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(1651): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      pdata16bits = (uint16_t *) pData;
+                    ^~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(3510): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      tmp = (uint16_t *) huart->pTxBuffPtr;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c(3577): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      pdata16bits = (uint16_t *) huart->pRxBuffPtr;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+12 warnings generated.
+compiling stm32f4xx_hal_uart.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(199): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(199): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(199): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(519): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_usart.h(125): warning: padding struct 'struct __USART_HandleTypeDef' with 2 bytes to align 'ErrorCode' [-Wpadded]
+  __IO uint32_t                  ErrorCode;       /*!< USART Error code                    */
+                                 ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(199): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(395): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_dma.h(149): warning: padding struct 'struct __DMA_HandleTypeDef' with 2 bytes to align 'Parent' [-Wpadded]
+  void                       *Parent;                                                          /*!< Parent object state                    */ 
+                              ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(778): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      ptxdata16bits = (uint16_t *) pTxData;
+                      ^~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(866): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      prxdata16bits = (uint16_t *) pRxData;
+                      ^~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(985): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      ptxdata16bits = (uint16_t *) pTxData;
+                      ^~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(986): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      prxdata16bits = (uint16_t *) pRxData;
+                      ^~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(2489): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      tmp = (uint16_t *) husart->pTxBuffPtr;
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(2557): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+      pdata16bits = (uint16_t *) husart->pRxBuffPtr;
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(2637): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+          pdata16bits = (uint16_t *) husart->pTxBuffPtr;
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c(2663): warning: cast from 'uint8_t *' (aka 'unsigned char *') to 'uint16_t *' (aka 'unsigned short *') increases required alignment from 1 to 2 [-Wcast-align]
+          pdata16bits = (uint16_t *) husart->pRxBuffPtr;
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+15 warnings generated.
+compiling stm32f4xx_hal_usart.c...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c(41): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c(41): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+5 warnings generated.
+compiling stm32f4xx_ll_usb.c...
+RTE/Device/STM32F429ZITx/system_stm32f4xx.c(49): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+RTE/Device/STM32F429ZITx/system_stm32f4xx.c(49): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+RTE/Device/STM32F429ZITx/system_stm32f4xx.c(49): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+7 warnings generated.
+compiling system_stm32f4xx.c...
 linking...
 Program Size: Code=12868 RO-data=2348 RW-data=0 ZI-data=1976  
-".\Objects\cryptolog_3.axf" - 0 Error(s), 60 Warning(s).
+".\Objects\cryptolog_3.axf" - 0 Error(s), 303 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -315,14 +1420,14 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:6.2.0
 
    * Component: Keil::Device:STM32Cube Framework:Classic:1.7.13
-      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
-      Source file:   MDK/Templates/Src/main.c
+      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
       Source file:   MDK/Templates_LL/Src/main.c
+      Include file:  CMSIS/Driver/Config/RTE_Device.h
+      Source file:   MDK/Templates/Src/main.c
+      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
+      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
       Include file:  MDK/Templates/Inc/main.h
       Source file:   MDK/Templates/Src/stm32f4xx_it.c
-      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
-      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
-      Include file:  CMSIS/Driver/Config/RTE_Device.h
       Include file:  MDK/Templates_LL/Inc/main.h
 
    * Component: Keil::Device:STM32Cube HAL:Common:1.7.13
@@ -333,8 +1438,8 @@ Package Vendor: Keil
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
 
    * Component: Keil::Device:STM32Cube HAL:DMA:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
 
    * Component: Keil::Device:STM32Cube HAL:DMA2D:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c
@@ -358,19 +1463,19 @@ Package Vendor: Keil
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c
 
    * Component: Keil::Device:STM32Cube HAL:I2S:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c
 
    * Component: Keil::Device:STM32Cube HAL:IRDA:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c
 
    * Component: Keil::Device:STM32Cube HAL:PWR:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
 
    * Component: Keil::Device:STM32Cube HAL:RCC:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
 
    * Component: Keil::Device:STM32Cube HAL:UART:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
@@ -379,12 +1484,12 @@ Package Vendor: Keil
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK/Device/Source/ARM/STM32F42xxx_43xxx_OPT.s
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   MDK/Device/Source/ARM/STM32F42xxx_43xxx_OPT.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f429xx.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>
