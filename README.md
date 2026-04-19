@@ -1,4 +1,4 @@
-# CryptoLog – Secure Data Logger + Hardware Wallet
+# CryptoLog - Secure Data Logger + Hardware Wallet
 
 CryptoLog is an embedded system project that implements a secure data logger combined with a hardware wallet functionality on the STM32F429I-DISC1 microcontroller. It uses cryptographic primitives like SHA-256 and ECDSA (P-256) to ensure tamper-evident logging of sensor data and secure message signing.
 
