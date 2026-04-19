@@ -14,7 +14,14 @@
 
 /* No HAL at all — bare register only */
 
+<<<<<<< HEAD
 static void soft_delay(volatile uint32_t n) { while (n--); }
+=======
+int main(void)
+{
+    //HAL_Init();          // needed for FLASH timing
+    uart_hw_init();      // WORKING UART
+>>>>>>> 56b3653d71a9506bf9a15f49ac228248589fe1e6
 
 int main(void) {
     uart_hw_init();
@@ -26,9 +33,16 @@ int main(void) {
     uart_send_string("=====================================\r\n");
     uart_send_string("Initializing crypto...\r\n");
 
+<<<<<<< HEAD
     if (crypto_init() != 0) {
         uart_send_string("FATAL: crypto_init failed.\r\n");
         while (1);
+=======
+    if (crypto_init() != 0)
+    {
+        uart_send_string("Crypto FAILED\r\n"); //system halt if crypto fails
+        while(1);
+>>>>>>> 56b3653d71a9506bf9a15f49ac228248589fe1e6
     }
 
     uart_send_string("Crypto OK\r\n");
