@@ -1,7 +1,7 @@
 ./objects/uart_cmd.o: uart_cmd.c RTE\_Target_1\Pre_Include_Global.h \
   uart_cmd.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h uart_hw.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h blockchain.h \
-  sensor_sim.h crypto.h ecc.h bignum.h sha256.h \
+  sensor_sim.h crypto.h \
   C:\Users\sarah\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   C:\Users\sarah\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f429xx.h \
   C:\Users\sarah\AppData\Local\Arm\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include\core_cm4.h \

@@ -27,9 +27,243 @@ Project File Date:  04/15/2026
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
+crypto.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.c <97> HMAC-SHA256 signing from scratch
+            ^
+crypto.c(20): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+crypto.c(21): warning: In file included from...
+./sha256.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * SHA-256 <97> from scratch, pure C, zero dependencies
+           ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+crypto.c(22): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+crypto.c(28): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+static uint8_t g_pubkey[32];     /* SHA256(key) <97> public identity */
+                                                ^
+crypto.c(38): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t raw[64];
+            ^
+crypto.c(21): warning: In file included from...
+./sha256.h(21): warning: padding size of 'SHA256_CTX' with 4 bytes to alignment boundary [-Wpadded]
+typedef struct {
+        ^
+crypto.c(76): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    SHA256_CTX ctx;
+               ^
+crypto.c(111): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t expected[32];
+            ^
+crypto.c(122): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+19 warnings generated.
+compiling crypto.c...
+main.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * main.c <97> Secure Data Logger + Wallet
+          ^
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+main.c(6): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(7): warning: In file included from...
+./uart_hw.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * uart_hw.c <97> Bare-register UART driver
+             ^
+main.c(8): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(9): warning: In file included from...
+./blockchain.h(6): warning: In file included from...
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                   ^
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                                           ^
+main.c(9): warning: In file included from...
+./blockchain.h(28): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(15): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+/* No HAL at all <97> bare register only */
+                 ^
+main.c(48): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    GPIOG->MODER &= ~((3 << (13*2)) | (3 << (14*2)));
+                 ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(86): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+                SensorData d = sensor_read();
+                           ^
+main.c(92): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(36): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    uint8_t pub[65];
+            ^
+main.c(17): warning: unused function 'soft_delay' [-Wunused-function]
+static void soft_delay(volatile uint32_t n) { while (n--); }
+            ^
+22 warnings generated.
+compiling main.c...
+blockchain.c(2): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * blockchain.c <97> Hash chain, Flash sector 11
+                ^
+blockchain.c(3): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Uses bare-register Flash programming <97> no HAL needed.
+                                        ^
+blockchain.c(8): warning: In file included from...
+./blockchain.h(6): warning: In file included from...
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                   ^
+./sensor_sim.h(9): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+    uint32_t temperature;  /* 0.01 <B0>C  e.g. 2547 = 25.47<B0>C */
+                                                           ^
+blockchain.c(8): warning: In file included from...
+./blockchain.h(28): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+blockchain.c(9): warning: In file included from...
+./crypto.h(5): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * crypto.h <97> HMAC-SHA256 signing, from scratch
+            ^
+./crypto.h(17): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * Public key: SHA256(secret_key) <97> a commitment, not the key itself.
+                                  ^
+./crypto.h(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+ * This is a commitment to the key <97> proves same device signed,
+                                   ^
+./crypto.h(42): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+blockchain.c(10): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+blockchain.c(10): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(383): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h(33): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+blockchain.c(10): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(288): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h(30): warning: In file included from...
+./RTE/Device/STM32F429ZITx\stm32f4xx_hal_conf.h(539): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_hcd.h(29): warning: In file included from...
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(189): warning: padding struct 'USB_OTG_HCTypeDef' with 1 byte to align 'xfer_buff' [-Wpadded]
+  uint8_t   *xfer_buff;         /*!< Pointer to transfer buffer.                                                */
+             ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(203): warning: padding struct 'USB_OTG_HCTypeDef' with 2 bytes to align 'dma_addr' [-Wpadded]
+  uint32_t  dma_addr;           /*!< 32 bits aligned transfer buffer address.                                   */
+            ^
+C:/Users/sarah/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h(158): warning: padding size of 'USB_OTG_HCTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+blockchain.c(106): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+    Block b;
+          ^
+blockchain.c(140): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        uint8_t raw[64]; size_t raw_len = block_to_hashable(&b, raw);
+                ^
+blockchain.c(153): warning: no newline at end of file [-Wnewline-eof]
+void  blockchain_erase(void)    { flash_erase_chain(); block_count = 0; }
+                                                                         ^
+19 warnings generated.
+compiling blockchain.c...
 linking...
-Program Size: Code=16948 RO-data=2532 RW-data=0 ZI-data=2048  
-".\Objects\cryptolog_3.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=12868 RO-data=2348 RW-data=0 ZI-data=1976  
+".\Objects\cryptolog_3.axf" - 0 Error(s), 60 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,26 +315,26 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:6.2.0
 
    * Component: Keil::Device:STM32Cube Framework:Classic:1.7.13
-      Include file:  MDK/Templates_LL/Inc/main.h
-      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
+      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
       Source file:   MDK/Templates/Src/main.c
       Source file:   MDK/Templates_LL/Src/main.c
-      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
-      Include file:  CMSIS/Driver/Config/RTE_Device.h
-      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
       Include file:  MDK/Templates/Inc/main.h
       Source file:   MDK/Templates/Src/stm32f4xx_it.c
+      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
+      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
+      Include file:  CMSIS/Driver/Config/RTE_Device.h
+      Include file:  MDK/Templates_LL/Inc/main.h
 
    * Component: Keil::Device:STM32Cube HAL:Common:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
       Include file:  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
 
    * Component: Keil::Device:STM32Cube HAL:Cortex:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
 
    * Component: Keil::Device:STM32Cube HAL:DMA:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
 
    * Component: Keil::Device:STM32Cube HAL:DMA2D:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c
@@ -109,8 +343,8 @@ Package Vendor: Keil
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
 
    * Component: Keil::Device:STM32Cube HAL:Flash:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
 
    * Component: Keil::Device:STM32Cube HAL:GPIO:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
@@ -120,12 +354,12 @@ Package Vendor: Keil
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c
 
    * Component: Keil::Device:STM32Cube HAL:I2C:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c
 
    * Component: Keil::Device:STM32Cube HAL:I2S:1.7.13
-      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c
 
    * Component: Keil::Device:STM32Cube HAL:IRDA:1.7.13
       Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c
